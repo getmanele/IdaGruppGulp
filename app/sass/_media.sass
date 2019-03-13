@@ -13,27 +13,56 @@
 
 
 @media only screen and (max-width : 870px)
-	/**/
+
+	.main__wrapper
+		.card
+			margin: 0 auto
+		.card__back
+			position: relative
+			margin: 0 auto
+			max-width: 350px
+			right: 0
+			top: 20px
+			.strech
+				width: 100%
+	.info__wrapper
+		.button-pay
+			text-align: center
 
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
 	/**/
 
-
 @media only screen and (max-width : 650px)
 
-
+	.main__wrapper
+		flex-direction: column
+		.menu
+			width: 100%
+			max-width: 67%
+			margin: 0 auto
+		.info
+			width: 100%
+			margin: 0 auto
+			.info__wrapper
+				padding: 0 15px
 
 @media only screen and (max-width : 600px)
 	
+	.main__wrapper
+		.info
+			max-width: 100%
 
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 400px)
 	/**/
 
-
+	.input
+		width: 50px
+		height: 35px
+		font-size: 14px
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
