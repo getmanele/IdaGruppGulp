@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
 	<!-- ===== first block ===== -->
 	<section class="main">
 		<!-- begin main__wrapper -->
@@ -56,40 +57,50 @@
 						<div class="card">
 
 							<p>Номер карты</p>
+
 							<!-- begin card__input -->
-							<div class="card__input-num">
-								<input class="input card__input-num_item" type="number" min="1" max="4" autocomplete="off">
-								<input class="input card__input-num_item" type="number" autocomplete="off"  maxlength="4" min="4" max="4">
-								<input class="input card__input-num_item" type="number autocomplete="off"  maxlength="4">
-								<input class="input card__input-num_item" type="number" autocomplete="off" maxlength="4">
-							</div>
-								
+							<form id="card-num" class="card__input-num">
+								<input class="input card__input-num_item" type="text" name="inp" data-start="0"  autocomplete="off" data-len="4">
+
+
+								<input class="input card__input-num_item" type="text" name="inp" data-start="4"  autocomplete="off" data-len="4">
+								<input class="input card__input-num_item" type="text" name="inp" data-start="8"  autocomplete="off" data-len="4" required>
+								<input class="input card__input-num_item" type="text" name="inp" data-start="12" autocomplete="off" data-len="4" required>
+							</form>
 							<!-- end card__input -->
+
 							<p>Срок действия</p>
 							<!-- begin card__input-data -->
-							<div class="card__input-data">
-								<input class="input card__input-data_item" type="number autocomplete="off">
-								<datalist id="browsers">
-								  <option>Январь</option>
-								  <option>Февраль</option>
-								  <option>Март</option>
-								  <option>Апрель</option>
-								  <option>Май</option>
-								  <option>Июнь</option>
-								  <option>Июль</option>
-								  <option>Август</option>
-								  <option>Сентябрь</option>
-								  <option>Октябрь</option>
-								  <option>Ноябрь</option>
-								  <option>Декабрь</option>
-								</datalist>
-								<input class="input card__input-data_item" type="number autocomplete="off">
-							</div>
+							<form class="card__input-data">
+								<select class="input card__input-data_item" data-rule="required">
+								  <option>01</option>
+								  <option>02</option>
+								  <option>03</option>
+								  <option>04</option>
+								  <option>05</option>
+								  <option>06</option>
+								  <option>07</option>
+								  <option>08</option>
+								  <option>09</option>
+								  <option>10</option>
+								  <option>11</option>
+								  <option>12</option>
+								</select>
+								<select class="input card__input-data_item"  data-rule="required">
+								  <option>2019</option>
+								  <option>2020</option>
+								  <option>2021</option>
+								  <option>2022</option>
+								  <option>2023</option>
+								  <option>2024</option>
+								  <option>2025</option>
+								</select>
+							</form>
 							<!-- end card__input-data -->
 							<!-- begin card__input-name -->
-							<div class="card__input-name">
-								<input class="input card__input-name_item" type="text" placeholder="Держатель карты">
-							</div>
+							<form class="card__input-name">
+								<input class="input card__input-name_item" id="name-inp" type="text" placeholder="Держатель карты">
+							</form>
 							<!-- end card__input-name -->
 							
 						</div>
@@ -101,7 +112,9 @@
 							<!-- begin cvv -->
 							<div class="cvv">
 								<p>Код CVV2 / CVC2</p>
-								<input class="input" type="text">
+								<form class="cvv__input">
+									<input class="input" type="text" maxlength="3" data-max="3">
+								</form>
 							</div>
 							<!-- end cvv -->
 
@@ -112,9 +125,9 @@
 					<!-- end card-details -->
 
 					<!-- begin button -->
-					<div class="button-pay">
+					<form class="button-pay">
 						<button class="button">Оплатить</button>
-					</div>
+					</form>
 					<!-- end button -->
 
 				</div>
@@ -146,14 +159,36 @@
 
 
 
+<!-- 	<script>
+	document.querySelector('form').addEventListener('input', function (e) {
+	  var inp = event.target;
+	  var inps = this.querySelectorAll('input');
+	  var value = Array.prototype.map.call(inps, x => x.value).join('');
+	  var i = +inp.dataset.start + inp.selectionStart, pos = value.length;
+	  
+	  for (var q=0; q<inps.length; ++q) {
+	    var start = +inps[q].dataset.start, len = +inps[q].dataset.len;
+	    inps[q].value = value.substr(start, len);
+	    
+	    if (start + len >= i) {
+	      inp = inps[q];
+	      pos = i - start;
+	      i = NaN;
+	    }
+	  }
+	  
+	  inp.focus();
+	  inp.selectionStart = inp.selectionEnd = pos;
+	});
+	</script> -->
 
 
 
 
 
-
-
+	<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 	<script src="js/scripts.min.js"></script>
+
 
 </body>
 </html>
